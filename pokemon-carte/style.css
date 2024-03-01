@@ -172,113 +172,28 @@ main {
   }
 }
 
-.pokemonCardContainer {
-  margin-top: 2rem;
-}
-
-.pokemonCard {
-  position: relative;
+.pokemonCardContainer{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  flex-direction: column;
-  border-radius: 8px;
-  width: 350px;
-  height: 100px;
-  margin-top: 16rem;
-  -webkit-filter: drop-shadow(10px 10px 10px #000000);
-  filter: drop-shadow(10px 10px 10px #000000);
 }
 
-#rickRollImage {
-  width: 90vw;
-  max-width: 500px;
-  display: none;
-  margin-bottom: 9rem;
+.pokemonBox{
+  padding: 0.5rem;
+  background: white;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  justify-content: space-around;
+  align-items: center;
 }
 
 #imagepokemon {
-  display: flex;
-  position: absolute;
-  bottom: 120%;
-  width: auto;
-  height: 11vh;
-  top: -235%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.pokemonBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 2rem;
-}
-
-.pokemonBox img {
   width: 200px;
-  margin-top: 1rem;
+  height: auto;
 }
 
-.pokemonBox p {
-  margin-top: 1rem;
-}
-
-#namepokemon,
-#weight,
-#height {
-  position: relative;
-  font-size: 1.20rem;
-  font-style: italic;
-  z-index: 1;
-  display: inline-block;
-  --webkit-background-clip: text;
-}
-
-#namepokemon {
-  top: -18vh;
-  left: -32%;
-}
-
-#weight {
-  top: -13.4vh;
-  left: 8.8%;
-}
-
-#height {
-  top: -27.3vh;
-  left: 34%;
-}
-
-#Number {
-  position: relative;
-  top: -36.7vh;
-  left: 38%;
-  font-size: 1.20rem;
-  font-style: italic;
-  z-index: 1;
-  color: #EAEAC3;
-}
-
-#type {
-  position: relative;
-  top: -46.5vh;
-  left: -17%;
-  z-index: 1;
-  transform: scale(0.30);
-}
-
-#energy {
-  display: flex;
-  position: absolute;
-  bottom: 120%;
-  width: auto;
-  height: 20vh;
-  top: -145%;
-  transform: translateX(-50%);
-  transform: scale(0.30);
-}
 
 #btnAccueil {
   width: 150px;

@@ -1,53 +1,3 @@
-const pokemonCard = {
-  bug: 'img/bugCard.png',
-  dark: 'img/darkCard.png',
-  dragon: 'img/dragonCard.png',
-  electric: 'img/electrikCard.png',
-  fairy: 'img/fairyCard.png',
-  fighting: 'img/fightCard.png',
-  fire: 'img/fireCard.png',
-  flying: 'img/flyCard.png',
-  ghost: 'img/ghostCard.png',
-  grass: 'img/grassCard.png',
-  ground: 'img/groundCard.png',
-  ice: 'img/iceCard.png',
-  normal: 'img/normalCard.png',
-  poison: 'img/poisonCard.png',
-  psychic: 'img/psyCard.png',
-  rock: 'img/rockCard.png',
-  steel: 'img/steelCard.png',
-  water: 'img/waterCard.png',
-};
-
-function imagePokemon(text) {
-  return pokemonCard[text];
-}
-
-const pokemonType = {
-  bug: 'img/bug.png',
-  dark: 'img/dark.png',
-  dragon: 'img/dragon.png',
-  electric: 'img/electr.png',
-  fairy: 'img/fairy.png',
-  fighting: 'img/fight.png',
-  fire: 'img/fire.png',
-  flying: 'img/flying.png',
-  ghost: 'img/ghost.png',
-  grass: 'img/grass.png',
-  ground: 'img/ground.png',
-  ice: 'img/ice.png',
-  normal: 'img/normal.png',
-  poison: 'img/poison.png',
-  psychic: 'img/psy.png',
-  rock: 'img/rock.png',
-  steel: 'img/steel.png',
-  water: 'img/water.png',
-};
-
-function translateType(text) {
-  return pokemonType[text];
-}
-
 const pokemonEnergy = {
   bug: 'img/bugEnergy.png',
   dark: 'img/darkEnergy.png',
@@ -69,6 +19,8 @@ const pokemonEnergy = {
   water: 'img/waterEnergy.png',
 };
 
+
+
 function getRandomSpriteURL(pokemonNumber) {
   const versions = {
     'generation-iii': ['emerald', 'firered-leafgreen', 'ruby-sapphire'],
@@ -88,9 +40,6 @@ function getRandomSpriteURL(pokemonNumber) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const rickRollAudio = document.getElementById("rickRollAudio");
-  const rickRollImage = document.getElementById("rickRollImage");
-
   const getPokemon = (e) => {
     const getname = document.querySelector("#pokemonName").value;
     const name = getname.toLowerCase();
@@ -102,16 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const energy = document.querySelector("#energy");
     const height = document.querySelector("#height");
 
-    if (name === '0' || name === '898') {
-      rickRollAudio.play();
-      rickRollImage.style.display = 'block';
-      toggleCardShadow(false);
-      return;
-    }
-
-    rickRollAudio.pause();
-    rickRollAudio.currentTime = 0;
-    rickRollImage.style.display = 'none';
 
     fetch(`https://pokebuildapi.fr/api/v1/pokemon/${name}`)
       .then((response) => response.json())
@@ -122,17 +61,12 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch(`https://pokeapi.co/api/v2/pokemon/${frenchData.id}`)
           .then((response) => response.json())
           .then((data) => {
-            const spriteURL = getRandomSpriteURL(data.id);
-            image.src = spriteURL;
+            image.src = `${data.sprites.other['official-artwork'].front_default}`;
             image.alt = `${data.name}`;
-            number.textContent = `${data.id}`;
-            weight.textContent = `${Math.round(data.weight / 10)} kg`;
-            type.innerHTML = `<img src="${translateType(data.types[0].type.name)}"/>`;
-            height.textContent = `${data.height * 10} cm`;
-            const cardImage = document.querySelector("#cardImage");
-            const cardPath = imagePokemon(data.types[0].type.name);
-            cardImage.src = cardPath;
-            energy.innerHTML = `<img src="${imageEnergy(data.types[0].type.name)}" alt="Energy"/>`;
+            number.textContent = `Numéro: ${data.id}`;
+            weight.textContent = `Poids: ${Math.round(data.weight/ 10)} kg`;
+            height.textContent = `Taille: ${data.height * 10} cm`;
+            type.innerHTML = `pouvoir: ${data.types[0].type.name}`;
           });
       })
       .catch((err) => {
