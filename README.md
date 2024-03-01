@@ -2,6 +2,8 @@
 Pokemon and Pokedex is a website that allows you to play and search pokemons anywhere. 
 You can choose to do a pokemon quizz, look at the pokedex or look at the different cards of Pokemon. 
 
+See the demo <a href='https://zoeleca.github.io/Pokedex-and-Pokemon/Accueil/Accueil.html'>here</a>
+
 <em>Home Page</em>
 ![image](https://github.com/Stoyots/pokemonFinal/assets/146814463/48983d37-a793-4a94-8f52-7ec7430b7699)
 
